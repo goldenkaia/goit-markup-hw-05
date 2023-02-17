@@ -138,6 +138,21 @@ body {
   letter-spacing: 0.02em;
   color: var(--navy-blue-color);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+
+}
+.menu-link::after {
+  content: "";
+ display: block;
+ position: absolute;
+ left: 0;
+ bottom: -27;
+ width: 100%;
+ height: 4px;
+ background-color: #4D5AE5;
+ bottom: -27px;
+ border-radius: 2px;
+
 }
 
 .menu-link:hover,
@@ -510,8 +525,8 @@ body {
   position: relative;
   overflow: hidden;
 }
-.portfolio-card-link-wrapper:hover .overlay,
-.portfolio-card-link-wrapper:focus .overlay {
+.portfolio-card-link:hover .overlay,
+.portfolio-card-link:focus .overlay {
  transform: translate(0, 0);
 }
 
@@ -534,7 +549,7 @@ padding-right: 32px;
 padding-bottom: 164px;
 transform: translate(0, 100%);
 transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);  /*---???---*/
-
+overflow: auto;
 background: #4D5AE5;
 }
 
@@ -682,14 +697,21 @@ background: #4D5AE5;
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.backdrop.is-hidden {
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+}
+
 .modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 408px;
-  height: 576px;
+  min-height: 576px;
   background: #FCFCFC;
 }
 .modal-close-button {
@@ -706,6 +728,7 @@ background: #4D5AE5;
   border-radius: 50%;
   width: 24px;
   height: 24px;
+  transition: border-color var(--ocean-color);
 }
 
 .modal-close-button:hover,
